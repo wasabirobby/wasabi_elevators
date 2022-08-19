@@ -4,41 +4,17 @@
 Config = {}
 
 Config.Elevators = {
---    ExampleElevator = {
---        {
---            coords = vec4(123.22, 123.22, 22.22. 222.22),
---            label = 'Floor 1',
---            description = 'Lobby',
---            target = {
---                width = 5,
---                length = 4
---            },
---            groups = { -- Remove groups if job lock not desired
---                'police',
---                'ambulance',
---            }
---        },
---        {
---            coords = vec4(123.22, 123.22, 22.22. 222.22),
---            label = 'Floor 2',
---            description = 'Lounge',
---            target = {
---              width = 5,
---              length = 4
---            } -- Example without group
---        },
---    },
-    PillboxElevatorNorth = {
+    PillboxElevatorNorth = { -- Elevator name(Doesn't show it's just to name table)
         [1] = {
             coords = vec3(332.37, -595.56, 43.28), -- Coords, if you're new; last number is heading
-            heading = 70.65,
-            title = 'Floor 2',
-            description = 'Main Floor',
-            target = {
+            heading = 70.65, -- Heading of how will spawn on floor
+            title = 'Floor 2', -- Title 
+            description = 'Main Floor', -- Description
+            target = { -- Target length/width
                 width = 5,
                 length = 4
             },
-            groups = {
+            groups = {-- Job locks
                 'police',
                 'ambulance'
             },
