@@ -7,32 +7,30 @@ QBCore = nil
 local framework, PlayerData, target
 
 CreateThread(function()
-    if not framework then
-        if GetResourceState('es_extended') == "started" then
-            framework = 'esx'
-            while ESX == nil do 
-                TriggerEvent("esx:getSharedObject", function(obj) 
-                    ESX = obj 
-                end)
-            end
-            while not ESX.GetPlayerData() do
-                Wait(1000)
-            end
+    if framework then return end
+
+    framework = GetResourceState('es_extended') == 'started' and 'esx' or GetResourceState('qb-core') == 'started' and 'qb' or nil
+
+    if not framework then return end
+
+    if framework == 'esx' then
+        ESX = exports.es_extended:getSharedObject()
+        PlayerData = ESX.GetPlayerData()
+        while not PlayerData or not PlayerData.job do
+            Wait(100)
             PlayerData = ESX.GetPlayerData()
-            RegisterNetEvent('esx:setJob', function(job)
-                PlayerData.job = job
-            end)
-        elseif GetResourceState('qb-core') == "started" then
-            framework = 'qb'
-            QBCore = exports["qb-core"]:GetCoreObject()
-            while not PlayerData do
-                PlayerData = QBCore.Functions.GetPlayerData()
-                Wait(5)
-            end
-            RegisterNetEvent('QBCore:Client:OnJobUpdate', function(job)
-                PlayerData.job = job
-            end)
         end
+
+        RegisterNetEvent('esx:setJob',  function(job)
+            PlayerData.job = job
+        end)
+    elseif framework == 'qb' then
+        QBCore = exports['qb-core']:GetCoreObject()
+        PlayerData = QBCore.Functions.GetPlayerData()
+
+        RegisterNetEvent('QBCore:Client:OnJobUpdate', function(job)
+            PlayerData.job = job
+        end)
     end
 end)
 
