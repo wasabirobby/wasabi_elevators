@@ -30,5 +30,4 @@ Config.Elevators = {
             } -- Example without group
         },
     },
-
 }

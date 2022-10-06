@@ -12,8 +12,12 @@ author 'wasabirobby#5110'
 version '1.0.0'
 
 client_scripts {
-	'client.lua',
+	'client/*.lua',
     'config.lua'
+}
+
+server_scripts {
+	'server/*.lua'
 }
 
 shared_scripts {
