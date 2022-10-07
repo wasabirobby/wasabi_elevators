@@ -1,7 +1,10 @@
 -----------------For support, scripts, and more----------------
 --------------- https://discord.gg/wasabiscripts  -------------
 ---------------------------------------------------------------
+
 Config = {}
+
+Config.checkForUpdates = true -- Check for Updates?
 
 Config.Elevators = {
     PillboxElevatorNorth = { -- Elevator name(Doesn't show it's just to name table)
@@ -30,5 +33,4 @@ Config.Elevators = {
             } -- Example without group
         },
     },
-
 }
