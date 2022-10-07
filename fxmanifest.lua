@@ -10,7 +10,7 @@ description "Wasabi's ESX/QbCore Elevator"
 
 author 'wasabirobby#5110'
 
-version '1.0.0'
+version '1.0.1'
 
 client_scripts {
 	'client/*.lua',
