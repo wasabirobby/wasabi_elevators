@@ -43,7 +43,6 @@ CreateThread(function()
     else
         target = 'qb-target'
     end
-
 end)
 
 AddEventHandler('wasabi_elevator:goToFloor', function(data)
@@ -57,7 +56,7 @@ AddEventHandler('wasabi_elevator:goToFloor', function(data)
 	end
 	RequestCollisionAtCoord(coords.x, coords.y, coords.z)
 	while not HasCollisionLoadedAroundEntity(ped) do
-		Wait(0)
+		Wait()
 	end
 	SetEntityCoords(ped, coords.x, coords.y, coords.z, false, false, false, false)
 	SetEntityHeading(ped, heading and heading or 0.0)
@@ -130,7 +129,6 @@ AddEventHandler('wasabi_elevator:openMenu', function(data)
 	})
 
 	lib.showContext('elevator_menu')
-
 end)
 
 CreateThread(function()
@@ -174,16 +172,9 @@ CreateThread(function()
                             floor = a
                         },
                     },
-                    distance = 1.5 
+                    distance = 1.5
                 })
             end
         end
     end
 end)
-
-
-
-
-
-
-
