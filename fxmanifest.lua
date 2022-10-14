@@ -10,11 +10,10 @@ description "Wasabi's ESX/QbCore Elevator"
 
 author 'wasabirobby#5110'
 
-version '1.0.1'
+version '1.0.2'
 
 client_scripts {
 	'client/*.lua',
-    'config.lua'
 }
 
 server_scripts {
@@ -22,7 +21,8 @@ server_scripts {
 }
 
 shared_scripts {
-	'@ox_lib/init.lua'
+	'@ox_lib/init.lua',
+	'config.lua'
 }
 
 dependencies {
