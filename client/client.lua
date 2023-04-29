@@ -31,6 +31,14 @@ CreateThread(function()
         RegisterNetEvent('QBCore:Client:OnJobUpdate', function(job)
             PlayerData.job = job
         end)
+
+        RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
+            PlayerData = QBCore.Functions.GetPlayerData()
+        end)
+
+        RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()
+            PlayerData = {}
+        end)
     end
 end)
 
